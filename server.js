@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const { populateMockData } = require('./config'); // Import the function
 
 dotenv.config();
 
@@ -12,10 +13,13 @@ mongoose.connect(process.env.MONGODB_URI, {
   useUnifiedTopology: true,
 });
 
+mongoose.set('strictQuery', false);
+
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
-db.once('open', () => {
+db.once('open', async () => {
   console.log('Connected to MongoDB');
+  await populateMockData(); // Call the function to populate mock data
 });
 
 // Import routes
