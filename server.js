@@ -3,6 +3,9 @@ import express from "express";
 import mongoose from 'mongoose';
 import 'dotenv/config';
 // import  populateMockData  from './config.js';
+import playerRoutes from "./routes/playerRoutes.js"
+import gameSessionRoutes from "./routes/gameSessionRoutes.js"
+import scoreRoutes from "./routes/scoreRoutes.js"
 
 const app = express();
 app.use(express.json());
@@ -23,15 +26,10 @@ db.once('open', async () => {
   // await populateMockData(); // Call the function to populate mock data
 });
 
-// Import routes
-// const playerRoutes = require('./routes/playerRoutes');
-// const gameSessionRoutes = require('./routes/gameSessionRoutes');
-// const scoreRoutes = require('./routes/scoreRoutes');
-
 // Use routes
-// app.use('/api/players', playerRoutes);
-// app.use('/api/game-sessions', gameSessionRoutes);
-// app.use('/api/scores', scoreRoutes);
+app.use('/api/players', playerRoutes);
+app.use('/api/game-sessions', gameSessionRoutes);
+app.use('/api/scores', scoreRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
