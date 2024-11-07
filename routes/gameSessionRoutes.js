@@ -1,6 +1,7 @@
-const express = require('express');
+import express from 'express';
+import GameSession from '../models/gameSession.js';
+
 const router = express.Router();
-const GameSession = require('../models/gameSession');
 
 // GET all game sessions
 router.get('/', async (req, res) => {
@@ -57,4 +58,4 @@ async function getGameSession(req, res, next) {
   next();
 }
 
-module.exports = router;
+export default router;
