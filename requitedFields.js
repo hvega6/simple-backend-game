@@ -34,4 +34,4 @@ const requiredFields = {
   }
 };
 
-export default requiredFields;
+module.exports = requiredFields;
