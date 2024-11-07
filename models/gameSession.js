@@ -1,11 +1,9 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
+import requiredFields from '../requiredFields.js';
 
+// Define game session schema
 const gameSessionSchema = new mongoose.Schema({
-  player: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Player',
-    required: true
-  },
+  player: requiredFields.player,
   startTime: {
     type: Date,
     default: Date.now
@@ -22,4 +20,4 @@ gameSessionSchema.index({ player: 1, startTime: -1 });
 
 const GameSession = mongoose.model('GameSession', gameSessionSchema);
 
-module.exports = GameSession;
+export default GameSession;
