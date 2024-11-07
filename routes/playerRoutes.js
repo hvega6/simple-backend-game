@@ -1,6 +1,7 @@
-const express = require('express');
+import express from 'express';
+import Player from '../models/player.js';
+
 const router = express.Router();
-const Player = require('../models/player');
 
 // GET all players
 router.get('/', async (req, res) => {
@@ -73,4 +74,4 @@ async function getPlayer(req, res, next) {
   next();
 }
 
-module.exports = router;
+export default router;
