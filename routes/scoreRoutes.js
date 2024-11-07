@@ -1,6 +1,7 @@
-const express = require('express');
+import express from 'express';
+import Score from '../models/score.js';
+
 const router = express.Router();
-const Score = require('../models/score');
 
 // GET all scores
 router.get('/', async (req, res) => {
@@ -41,4 +42,4 @@ router.get('/top', async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;
