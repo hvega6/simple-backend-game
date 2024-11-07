@@ -1,21 +1,11 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
+import requiredFields from '../requiredFields.js';
 
+// Define score schema
 const scoreSchema = new mongoose.Schema({
-  player: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Player',
-    required: true
-  },
-  gameSession: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'GameSession',
-    required: true
-  },
-  score: {
-    type: Number,
-    required: true,
-    min: 0
-  },
+  player: requiredFields.player,
+  gameSession: requiredFields.gameSession,
+  score: requiredFields.score,
   createdAt: {
     type: Date,
     default: Date.now
@@ -27,4 +17,4 @@ scoreSchema.index({ gameSession: 1 });
 
 const Score = mongoose.model('Score', scoreSchema);
 
-module.exports = Score;
+export default Score;
