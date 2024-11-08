@@ -19,7 +19,7 @@ async function testMflix() {
 
   console.log('inside testMflix()')
     // Open the sample_mflix database
-    await mongoose.connect("mongodb+srv://damndaniel:091021@cluster0.yln5v.mongodb.net/game_server?retryWrites=true&w=majority&appName=Cluster0")
+    await mongoose.connect()
     // await mongoose.connect("mongodb+srv://perscholas:kA3GqdrJlVuRuTMT@cluster0.mf4c7.mongodb.net/sample_mflix?retryWrites=true&w=majority&appName=FirstCluster")
         .then(() => {
             console.log('Connected to MongoDB hu');
